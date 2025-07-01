@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2025 at 07:33 PM
+-- Generation Time: Jul 01, 2025 at 03:01 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -77,7 +77,8 @@ CREATE TABLE `materia_prima` (
   `contenido_neto` varchar(200) NOT NULL COMMENT 'unidad de medida',
   `marca` varchar(200) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `stock_minimo` double NOT NULL
+  `stock_minimo` double NOT NULL,
+  `stock_maximo` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
 
 -- --------------------------------------------------------
@@ -88,7 +89,6 @@ CREATE TABLE `materia_prima` (
 
 CREATE TABLE `motivos` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(200) NOT NULL,
   `descripcion` varchar(200) NOT NULL,
   `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
@@ -133,7 +133,7 @@ CREATE TABLE `usuarios` (
   `correo` varchar(200) NOT NULL,
   `estado` tinyint(1) DEFAULT 0 COMMENT '0 = usuario inactivo, 1 = usuario activo',
   `admin` tinyint(1) DEFAULT 0 COMMENT '0 = no es admin, 1 = es admin',
-  `id_usuario` tinyint(1) DEFAULT NULL
+  `id_usuario` tinyint(1) DEFAULT NULL COMMENT 'La función de id_usuario en la tabla usuarios es el control de altas de usuarios y bajas de los usuarios'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
 
 --
